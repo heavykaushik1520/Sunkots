@@ -1,0 +1,71 @@
+.testimonial-banner {
+  position: relative;
+  width: 100%;
+  height: 350px; /* You can adjust based on how much banner height you want */
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text h1 {
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .banner-text h1 {
+    font-size: 36px; /* Tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-text h1 {
+    font-size: 28px; /* Small tablet / big phone */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-text h1 {
+    font-size: 22px; /* Mobile phones */
+  }
+}
+
+.slider-btn {
+    width: 48px; /* same as w-12 */
+    height: 48px; /* same as h-12 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #3a2d20;
+    color: #3a2d20;
+    background-color: white;
+    border-radius: 0.125rem; /* rounded-sm */
+    transition: all 0.3s ease;
+    font-size: 24px;
+  }
+  
+  .slider-btn:hover {
+    background-color: #3a2d20;
+    color: #ffffff;
+    border-color: #3a2d20;
+  }
+  

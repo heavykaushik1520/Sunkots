@@ -1,0 +1,41 @@
+.custom-footer {
+    background-color: #1a1817;
+    color: #d1d5db;
+    padding: 5rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+
+}
+
+.custom-footer .top-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    
+    
+}
+
+.custom-footer .logo-and-description {
+    margin-bottom: 2.5rem;
+}
+
+.custom-footer .contact-info {
+    margin-bottom: 1.5rem;
+}
+
+.custom-footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.custom-footer .bottom-content {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.75rem;
+}

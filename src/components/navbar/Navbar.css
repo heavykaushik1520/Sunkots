@@ -1,0 +1,135 @@
+/* Navbar main styling */
+.navbar {
+  background-color: #ffffff;
+  height: 140px; /* Fixed height for all devices */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container inside navbar */
+.navbar-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo img {
+  height: 120px;
+  width: auto;
+}
+
+/* Mobile menu icon */
+.navbar-menu-icon {
+  font-size: 30px;
+  color: #5c4033; /* Coffee color */
+  display: none;
+  cursor: pointer;
+}
+
+/* Navigation links */
+.navbar-links ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.navbar-links ul li a {
+  text-decoration: none;
+  color: #5c4033;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+}
+
+.navbar-links ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #5c4033;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+.navbar-links ul li a:hover::after {
+  width: 100%;
+}
+
+/* Cart */
+.navbar-cart {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-cart a {
+  display: flex;
+  align-items: center;
+  color: #5c4033;
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.cart-icon {
+    font-size: 40px;
+    margin-right: 8px;
+    color: #5C4033; /* Default coffee color */
+    transition: color 0.3s ease;
+  }
+  
+  .cart-icon:hover {
+    color: green; /* Changes to green on hover */
+  }
+
+.cart-text {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .cart-text {
+    display: block;
+  }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .navbar-menu-icon {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-links.active {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .navbar-links ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

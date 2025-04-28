@@ -1,0 +1,144 @@
+.about-banner {
+  position: relative;
+  width: 100%;
+  height: 350px; /* You can adjust based on how much banner height you want */
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #333;
+}
+
+.banner-text h1 {
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.banner-text p {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* External CSS */
+.btn-group {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2.5rem; /* roughly px-10 py-4 */
+  border: 2px solid #22c55e; /* green-500 */
+  color: #22c55e;
+  font-size: 1rem; /* md:text-base */
+  font-weight: 300; /* font-light */
+  letter-spacing: 0.1em; /* tracking-wider */
+  cursor: pointer;
+  overflow: visible;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.btn-group:hover {
+  border-color: rgba(48, 26, 3, 0.8); /* #301a03ce */
+}
+
+.btn-shadow {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  border: 2px solid rgba(49, 27, 4, 0.38); /* #311b0460 */
+  transform: translate(3px, 4px);
+  transition: border-color 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.btn-group:hover .btn-shadow {
+  border-color: rgba(48, 26, 3, 0.8); /* #301a03ce */
+}
+
+.btn-main {
+  position: relative;
+  z-index: 10;
+  transition: color 0.3s ease-in-out;
+  letter-spacing: 0.05em; /* tracking-tighter */
+}
+
+.btn-group:hover .btn-main {
+  color: rgba(48, 26, 3, 0.8); /* #301a03ce */
+}
+
+/* animation of vision */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.8s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.8s ease forwards;
+}
+
+/* Line Line Line */
+
+@keyframes expandLine {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animated-line {
+  transform-origin: center;
+  animation: expandLine 1s ease forwards;
+}
+
+
+/* floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating-box {
+  animation: float 2s ease-in-out infinite;
+}
