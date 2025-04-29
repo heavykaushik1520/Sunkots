@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './CoffeeSection.css';
 
 function CoffeeSection() {
-  const [offsetY, setOffsetY] = useState(0);
-
-  const handleScroll = () => {
-    setOffsetY(window.scrollY);
-  };
+  const cupRef = useRef(null);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const cup = cupRef.current;
 
-  // Limit cup movement maximum up to 50px
-  const cupTranslateY = Math.min(offsetY * 0.1, 50);
+      if (cup) {
+        // Parallax depth control
+        const translateY = Math.min(scrollY * 0.2, 50); // max 50px vertical
+        const translateX = Math.min(scrollY * 0.05, 20); // optional small horizontal shift
+        cup.style.transform = `translate(${translateX}px, ${translateY}px)`;
+      }
+    };
+
+    const handleScrollThrottled = () => {
+      requestAnimationFrame(handleScroll);
+    };
+
+    window.addEventListener('scroll', handleScrollThrottled);
+    return () => window.removeEventListener('scroll', handleScrollThrottled);
+  }, []);
 
   return (
     <section 
@@ -22,13 +31,13 @@ function CoffeeSection() {
       style={{ backgroundImage: "url('/images/main/bg_home_paralax.jpg')" }}
     >
       <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl gap-10 md:gap-16">
-        {/* Cup Image */}
+        {/* Cup Image with parallax */}
         <div className="relative flex-shrink-0">
           <img 
+            ref={cupRef}
             src="/images/main/cup1.png" 
             alt="Coffee Cup" 
-            className="w-[250px] md:w-[400px] lg:w-[500px] cup-parallax"
-            style={{ transform: `translateY(${cupTranslateY}px)` }}
+            className="w-[250px] md:w-[400px] lg:w-[500px] transition-transform duration-300 ease-out"
           />
         </div>
 

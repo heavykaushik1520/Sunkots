@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import logoMain from "/images/navbar/logo.png"; // Make sure path is correct
+import { Link } from "react-router-dom";
+import logoMain from "/images/navbar/logo.png"; 
 import { RiShoppingCart2Line, RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import "@fontsource/playfair-display"; 
-import "./Navbar.css"; // Linking the external CSS
+import "./Navbar.css"; 
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,26 +16,26 @@ function Navbar() {
     <header className="navbar">
       <div className="navbar-container">
         
-        {/* Logo */}
+        
         <div className="navbar-logo">
           <a href="/">
             <img src={logoMain} alt="Logo" />
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        
         <div className="navbar-menu-icon" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? <RiCloseLine /> : <RiMenu3Line />}
         </div>
 
-        {/* Navigation Links */}
+        
         <nav className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="/menu">Menu</a></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/menu">Menu</Link></li>
             
-            <li><a href="/shop">Shop</a></li>
+            <li><a href="/infrastructure">Infrastructure</a></li>
             <li><a href="/contacts">Contacts</a></li>
           </ul>
         </nav>

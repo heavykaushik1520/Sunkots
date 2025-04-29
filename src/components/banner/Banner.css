@@ -18,7 +18,7 @@
 .banner-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  
   z-index: 1;
 }
 
@@ -80,3 +80,31 @@
     background-attachment: scroll;
   }
 }
+
+
+@keyframes expand-line {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 1000px;
+    opacity: 1;
+  }
+}
+
+.animate-expand-line {
+  animation: expand-line 2s linear forwards;
+}
+
+
+.slide-down {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.slide-up {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+

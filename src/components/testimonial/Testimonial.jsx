@@ -1,9 +1,23 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Testimonial.css";
 
 function Testimonial() {
   const [current, setCurrent] = useState(0);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => sectionRef.current && observer.unobserve(sectionRef.current);
+  }, []);
 
   const testimonials = [
     {
@@ -48,7 +62,7 @@ function Testimonial() {
 
   return (
     <>
-      <div className="testimonial-page">
+      {/* <div className="testimonial-page">
         <div className="testimonial-banner">
           <img
             src="/images/testimonial/top_bg_1.jpg"
@@ -64,10 +78,10 @@ function Testimonial() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <section className="py-12 px-4 md:px-16 bg-cover bg-center bg-no-repeat">
-        <h2 className="text-center text-2xl md:text-4xl font-bold tracking-widest text-[#1f1205] mb-10 uppercase">
+        <h2 className="text-center text-2xl md:text-4xl font-bold tracking-widest text-[#5c4033] mb-10 uppercase font-playfair">
           Happy Customers
         </h2>
 
@@ -111,6 +125,8 @@ function Testimonial() {
           </button>
         </div>
       </section>
+
+     
     </>
   );
 }

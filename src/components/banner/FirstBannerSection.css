@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.first-banner-heading {
+    font-family: 'Great Vibes', 'Playfair Display', serif;
+  }
+
+  .cursive-heading {
+    font-family: 'Great Vibes', cursive;
+  }
+
+
+/* Default: full height */
+.custom-section-height {
+    min-height: 100vh;
+  }
+  
+  /* On mobile: reduce height to avoid clipping and fit content */
+  @media (max-width: 640px) {
+    .custom-section-height {
+      min-height: auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  
+    .arrow2-position {
+      bottom: 6%;
+      right: 6%;
+    }
+  }
+  
