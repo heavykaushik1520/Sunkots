@@ -42,14 +42,16 @@ function Infrastructure() {
   return (
     <>
       <div className="about-page">
-        <div className="about-banner">
+        <div className="about-banner relative">
           <img
             src="/images/about/top_bg_5.jpg"
             alt="about Banner"
-            className="banner-image"
+            className="banner-image w-full h-auto object-cover"
           />
-          <div className="banner-text tracking-normal !text-[#5c4033]">
-            <h1 className="tracking-normal">INFRASTRUCTURE</h1>
+          <div className="banner-text absolute inset-0 flex items-center justify-center text-center px-2">
+            <h1 className="whitespace-nowrap text-[clamp(1.5rem,6vw,3rem)] font-bold tracking-wide text-[#5c4033]">
+              INFRASTRUCTURE
+            </h1>
           </div>
         </div>
       </div>

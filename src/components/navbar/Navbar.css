@@ -1,4 +1,3 @@
-
 .navbar {
   background-color: #ffffff;
   height: 140px; /* Fixed height for all devices */
@@ -84,15 +83,15 @@
 }
 
 .cart-icon {
-    font-size: 40px;
-    margin-right: 8px;
-    color: #5C4033; /* Default coffee color */
-    transition: color 0.3s ease;
-  }
-  
-  .cart-icon:hover {
-    color: green; /* Changes to green on hover */
-  }
+  font-size: 40px;
+  margin-right: 8px;
+  color: #5c4033; /* Default coffee color */
+  transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+  color: green; /* Changes to green on hover */
+}
 
 .cart-text {
   display: none;
@@ -108,28 +107,41 @@
 @media (max-width: 768px) {
   .navbar-menu-icon {
     display: block;
+    z-index: 1000;
   }
 
   .navbar-links {
-    position: absolute;
-    top: 90px;
+    position: fixed;
+    top: 140px; /* Same as navbar height */
     left: 0;
     width: 100%;
-    background: #ffffff;
+    height: calc(100vh - 140px);
+    background-color: rgba(69, 49, 40, 0.9); /* Chocolate transparent */
+    color: white;
     flex-direction: column;
     align-items: center;
-    display: none;
+    display: flex;
     padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 998;
   }
 
   .navbar-links.active {
-    display: flex;
-    align-items: stretch;
+    transform: translateX(0);
   }
 
   .navbar-links ul {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .navbar-links ul li a {
+    color: white !important;         /* White text only in mobile */
+  }
+
+  .navbar-links ul li a::after {
+    background-color: white;         /* White underline only in mobile */
   }
 }
