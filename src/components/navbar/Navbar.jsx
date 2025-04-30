@@ -31,12 +31,12 @@ function Navbar() {
         
         <nav className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/menu">Menu</Link></li>
             
-            <li><a href="/infrastructure">Infrastructure</a></li>
-            <li><a href="/contacts">Contacts</a></li>
+            <li><Link to="/infrastructure">Infrastructure</Link></li>
+            <li><Link to="/contacts">Contacts</Link></li>
           </ul>
         </nav>
 
