@@ -41,20 +41,20 @@ function Infrastructure() {
   ];
   return (
     <>
-      <div className="about-page">
+      {/* <div className="about-page">
         <div className="about-banner relative">
           <img
-            src="/images/about/top_bg_5.jpg"
+            src="images/about/top_bg_5.jpg"
             alt="about Banner"
             className="banner-image w-full h-auto object-cover"
           />
           <div className="banner-text absolute inset-0 flex items-center justify-center text-center px-2">
-            <h1 className="whitespace-nowrap text-[clamp(1.5rem,6vw,3rem)] font-bold tracking-wide text-[#5c4033]">
+            <h1 className="whitespace-nowrap text-[clamp(1.5rem,6vw,3rem)] font-bold tracking-wide text-[#96712a]">
               INFRASTRUCTURE
             </h1>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <section
         id="bakery-section"
@@ -65,7 +65,7 @@ function Infrastructure() {
         <div className="absolute bottom-0 right-0 w-56 h-56  rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse animation-delay-1000"></div>
 
         <h2
-          className={`text-3xl md:text-5xl font-extrabold text-[#5c4033] mb-10 uppercase tracking-wide
+          className={`text-3xl md:text-5xl font-extrabold text-[#96712a] mb-10 uppercase tracking-wide
           transition-transform duration-700 ease-out ${
             visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
@@ -74,7 +74,7 @@ function Infrastructure() {
         </h2>
 
         <p
-          className={`text-[#5c4033c9] text-lg md:text-xl max-w-3xl mb-12 leading-relaxed
+          className={`text-[#96712ac9] text-lg md:text-xl max-w-3xl mb-12 leading-relaxed
           transition-opacity duration-700 ease-out delay-300 ${
             visible ? "opacity-100" : "opacity-0"
           }`}
@@ -83,11 +83,11 @@ function Infrastructure() {
           industry, using cutting-edge technology and world class processes:
         </p>
 
-        <ul className="space-y-8 max-w-3xl mx-auto text-[#5c4033c9]">
+        <ul className="list-disc pl-6 space-y-8 max-w-3xl mx-auto text-[#96712ac9]">
           {points.map((point, i) => (
             <li
               key={i}
-              className="flex items-start gap-4 text-lg md:text-xl leading-snug hover:text-[#2d1b0b]"
+              className="text-lg md:text-xl leading-snug hover:text-[#96712a]"
               style={{
                 transitionProperty: "transform, opacity",
                 transitionDuration: "700ms",
@@ -97,11 +97,10 @@ function Infrastructure() {
                 opacity: visible ? 1 : 0,
               }}
             >
-              <GiCoffeeCup
-                className="flex-shrink-0 text-[#2d1b0b] shadow-lg hover:scale-125 transition-transform duration-300 mt-1"
-                size={28}
-              />
-              <span>{point}</span>
+              <div className="flex items-start gap-4">
+                <span>{point}</span>
+              </div>
+              <hr className="mt-4 mb-4 border-t-2 border-[#017043] opacity-30 animated-line  mx-auto" />
             </li>
           ))}
         </ul>

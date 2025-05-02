@@ -10,6 +10,8 @@ import SecondBannerSection from "./SecondBannerSection";
 import ThirdBannerSection from "./ThirdBannerSection";
 import FourthBannerSection from "./FourthBannerSection";
 import Testimonial from "../testimonial/Testimonial";
+import SomeMenu from "../menu/SomeMenu";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,7 +74,7 @@ const Banner = () => {
         <div className="banner-wrapper relative h-full w-full">
           <div
             className="banner-background"
-            style={{ backgroundImage: "url('/images/main/background.jpg')" }}
+            style={{ backgroundImage: "url('images/main/background.jpg')" }}
           ></div>
           <div className="banner-overlay"></div>
           <div className="progress-bar">
@@ -94,27 +96,34 @@ const Banner = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Animated horizontal line */}
 
-          <h2 className="text-2xl sm:text-3xl font-semibold text-[#5c4033] mb-2 font-playfair">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-[#96712a] mb-2">
             Explore | Order | Enjoy
           </h2>
-          <p className="text-[#4a3b2c] text-base sm:text-lg mb-6 font-playfair">
+          <p className="text-[#96712a] text-base sm:text-lg mb-6">
             Check out our wide selection of bakery delights.
           </p>
-          <button className="bg-[#5c4033] hover:bg-[#4a362d] text-white px-6 py-2 rounded-full transition duration-300 font-semibold">
-            ADD TO CART
-          </button>
-
-          <div className="flex justify-center mt-10">
-            <div className="h-[2px] bg-[#5c4033] animate-expand-line"></div>
-          </div>
+          <SomeMenu />
+          <Link to="/menu">
+            {" "}
+            {/* Replace "/menu" with the actual path to your MenuList */}
+            <button className="bg-[#96712a] hover:bg-[#017043] text-white px-6 py-2 rounded-full transition duration-300 font-semibold">
+              View More
+            </button>
+          </Link>
         </div>
       </section>
+      <div className="flex justify-center mt-10">
+        <div className="h-[2px] bg-[#017043] animate-expand-line"></div>
+      </div>
 
       <Delight />
-      <Testimonial/>
+      <div className="flex justify-center mt-10">
+        <div className="h-[2px] bg-[#017043] animate-expand-line"></div>
+      </div>
+      <Testimonial />
 
       <div className="flex justify-center mt-10">
-        <div className="h-[2px] bg-[#5c4033] animate-expand-line"></div>
+        <div className="h-[2px] bg-[#017043] animate-expand-line"></div>
       </div>
       <section
         ref={sectionRef}
@@ -122,14 +131,14 @@ const Banner = () => {
       >
         <div className="max-w-3xl mx-auto">
           <h2
-            className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#5c4033] font-playfair mb-4 transition-transform duration-1000 ${
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#96712a] mb-4 transition-transform duration-1000 ${
               inView ? "slide-down" : "opacity-0 translate-y-[-50px]"
             }`}
           >
             Baking Excellence, Since 2018
           </h2>
           <p
-            className={`text-[#4a3b2c] text-base sm:text-lg font-playfair transition-transform duration-1000 delay-300 ${
+            className={`text-[#96712a] text-base sm:text-lg  transition-transform duration-1000 delay-300 ${
               inView ? "slide-up" : "opacity-0 translate-y-[50px]"
             }`}
           >

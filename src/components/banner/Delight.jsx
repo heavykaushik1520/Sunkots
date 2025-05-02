@@ -33,12 +33,17 @@ function Delight() {
   return (
     <section className="delight-section">
       <div className="container">
-        <div ref={textRef} className={`text-wrapper ${isInView ? 'slide-up' : ''}`}>
-          <h2 className="title font-playfair">Delight in Every Bite - Our Quality Promise</h2>
-          <p className="description font-playfair">
+        <div
+          ref={textRef}
+          className={`text-wrapper ${isInView ? "slide-up" : ""}`}
+        >
+          <h2 className="title  text-[#96712a]">
+            Delight in Every Bite - Our Quality Promise
+          </h2>
+          <p className="description  text-[#96712a]">
             Our products are meticulously crafted using the finest ingredients,
-            carefully selected from trusted vendors, ensuring unparalleled quality,
-            consistent richness, and exceptional flavour.
+            carefully selected from trusted vendors, ensuring unparalleled
+            quality, consistent richness, and exceptional flavour.
           </p>
         </div>
       </div>

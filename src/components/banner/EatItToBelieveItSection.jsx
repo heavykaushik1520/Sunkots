@@ -34,8 +34,8 @@ const EatItToBelieveItSection = () => {
     <section className="eat-section">
       <div className="container">
         <div ref={textRef} className={`text-wrapper ${isInView ? 'slide-up' : ''}`}>
-          <h2 className="title font-playfair">EAT IT TO BELIEVE IT!</h2>
-          <p className="description font-playfair">
+          <h2 className="title  text-[#96712a]">EAT IT TO BELIEVE IT!</h2>
+          <p className="description  text-[#96712a]">
             Marketed under the brand name soTrue, we make a wide range of
             flavourful baked edibles that are appreciated by every member in the
             family.

@@ -25,21 +25,21 @@ function Testimonial() {
         "I simply adore this theme and nice, lightweight design. Thank you for the professional support and regular updates!",
       name: "Lily Hunter",
       role: "Publisher",
-      img: "/images/testimonial/2000x2000.png", // Replace with your real images
+      img: "images/testimonial/2000x2000.png", // Replace with your real images
     },
     {
       message:
         "Who doesn't like a nice cup of coffee? Here you can find everything to spend quality time with a drink and dessert.",
       name: "John Doe",
       role: "Photographer",
-      img: "/images/testimonial/2000x2000.png",
+      img: "images/testimonial/2000x2000.png",
     },
     {
       message:
         "With this wonderful theme your website becomes a guarantee for a successful business, café, bakery or a restaurant.",
       name: "Emma Jones",
       role: "Public Relations",
-      img: "/images/testimonial/2000x2000.png",
+      img: "images/testimonial/2000x2000.png",
     },
   ];
 
@@ -81,16 +81,16 @@ function Testimonial() {
       </div> */}
 
       <section className="py-12 px-4 md:px-16 bg-cover bg-center bg-no-repeat">
-        <h2 className="text-center text-2xl md:text-4xl font-bold tracking-widest text-[#5c4033] mb-10 uppercase font-playfair">
+        <h2 className="text-center text-2xl md:text-4xl font-bold tracking-widest text-[#96712a] mb-10 uppercase">
           Happy Customers
         </h2>
 
         <div
           className="max-w-xl mx-auto mb-10 flex flex-col items-center text-center
-               border border-[#2d1b0c] rounded-lg p-8
-               min-h-[320px]"
+         border border-[#017043] rounded-lg p-8 min-h-[320px]
+         shadow-[0_0_30px_rgba(1,112,67,0.4)]"
         >
-          <p className="text-[#2d1b0c]  text-base md:text-lg mb-6 leading-relaxed">
+          <p className="text-[#96712a] text-base md:text-lg mb-6 leading-relaxed">
             {testimonials[current].message}
           </p>
 
@@ -100,12 +100,12 @@ function Testimonial() {
               alt={testimonials[current].name}
               className="w-16 h-16 object-cover rounded-md"
             />
-            <h3 className="font-bold text-[#2d1b0c] uppercase text-lg">
+            <h3 className="font-bold text-[#96712a] uppercase text-lg">
               {testimonials[current].name}
             </h3>
           </div>
 
-          <p className="text-sm text-gray-600 mt-1 tracking-wider">
+          <p className="text-sm text-[#96712a] mt-1 tracking-wider">
             {testimonials[current].role}
           </p>
         </div>
@@ -113,20 +113,18 @@ function Testimonial() {
         <div className="flex justify-center gap-4">
           <button
             onClick={handlePrev}
-            className="border-2 border-[#3a2d20] text-[#3a2d20] bg-white px-4 py-2 rounded-md hover:bg-[#3a2d20] hover:text-white transition-all duration-300"
+            className="border-2 border-[#96712a] text-[#96712a] bg-white px-4 py-2 rounded-md hover:bg-[#96712a] hover:text-white transition-all duration-300"
           >
             &#8249;
           </button>
           <button
             onClick={handleNext}
-            className="border-2 border-[#3a2d20] text-[#3a2d20] bg-white px-4 py-2 rounded-md hover:bg-[#3a2d20] hover:text-white transition-all duration-300"
+            className="border-2 border-[#96712a] text-[#96712a] bg-white px-4 py-2 rounded-md hover:bg-[#96712a] hover:text-white transition-all duration-300"
           >
             &#8250;
           </button>
         </div>
       </section>
-
-     
     </>
   );
 }

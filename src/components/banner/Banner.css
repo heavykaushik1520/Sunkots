@@ -28,13 +28,14 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(228, 194, 130, 0.781);
+
   z-index: 2;
 }
 
 .progress-fill {
   height: 100%;
-  background-color: #525252;
+  background-color: #d1a34e;
   transition: width 0.1s linear;
 }
 

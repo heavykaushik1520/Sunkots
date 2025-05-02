@@ -5,33 +5,33 @@ const FourthBannerSection = ({ parallax }) => {
         {/* Text Section */}
         <div
           className="text-center md:text-left max-w-xl z-20 md:-mt-4"
-          style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
+          // style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
         >
-          <h2 className="text-[#5c4033] text-2xl sm:text-3xl md:text-4xl font-semibold mb-4">
+          <h1 className="text-[#96712a] text-2xl sm:text-3xl md:text-4xl font-semibold mb-4">
             Available at Reputed Retailers
-          </h2>
-          <p className="text-[#4a3b2c] text-base sm:text-lg md:text-xl">
+          </h1>
+          <p className="text-[#96712a] text-base sm:text-lg md:text-xl">
             Our bakery products adorn the shelves of iconic stores in and around Mumbai, such as Reliance Retail Ltd., Prashant Corner, Ramanlal VithalDas, among others.
           </p>
         </div>
   
         {/* Image Section */}
-        <div
-          className="relative w-full md:w-1/2 max-w-md md:max-w-lg md:mt-4 md:mb-2"
-          style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
-        >
+        <div className="relative mt-6 sm:mt-0">
           <img
-            src="/images/main/3000x2000.png"
-            alt="Retail Availability"
-            className="w-full h-auto object-cover rounded-xl shadow-lg"
+            src="images/main/bannera.png"
+            alt="Cup"
+            className="w-66 sm:w-56 md:w-72 lg:w-96 xl:w-[550px] transform translate-x-[-10px] sm:translate-x-[-20px]"
+            style={{
+              transform: `translate(calc(${parallax.x}px - 10px), ${parallax.y}px)`,
+            }}
           />
   
           {/* Arrow to the left of the image pointing toward the text */}
-          <img
-            src="/images/main/arrow3.png"
+          {/* <img
+            src="images/main/arrow3.png"
             alt="Arrow"
             className="hidden md:block absolute top-[70%] -left-15 transform -translate-y-1/2 rotate-[100deg] w-10"
-          />
+          /> */}
         </div>
       </div>
     );

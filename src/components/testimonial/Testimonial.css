@@ -55,8 +55,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #3a2d20;
-    color: #3a2d20;
+    border: 2px solid #96712a;
+    color: #96712a;
     background-color: white;
     border-radius: 0.125rem; /* rounded-sm */
     transition: all 0.3s ease;
@@ -64,8 +64,8 @@
   }
   
   .slider-btn:hover {
-    background-color: #3a2d20;
+    background-color: #96712a;
     color: #ffffff;
-    border-color: #3a2d20;
+    border-color: #96712a;
   }
   

@@ -1,63 +1,119 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React, { useState } from "react";
-import "./MenuList.css"; // For small custom CSS if needed
+import "./MenuList.css"; // Custom CSS if needed
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const categories = ["BREAKFAST", "SPECIALS", "DRINKS", "DESSERTS", "SALADS"];
+const categories = ["SAVOURIES", "SWEETS", "HEALTHY"];
 
 const menuItems = [
   {
     id: 1,
-    image: "/images/menu/2000x2000.png",
-    name: "Shrimp Fondue",
+    image: "images/menu/product/khari-Photoroom.png",
+    name: "Mini Khari",
     description:
-      "Autem vel eum iriure dolor in hendrerit in vulputate molestie...",
-    price: "$14.60",
+      "Lovingly handcrafted, our artisanal and crispy Mini Khari makes for a good tea time snack.",
+    price: "₹110/-",
     category: "DESSERTS",
   },
   {
     id: 2,
-    image: "/images/menu/2000x2000.png",
-    name: "Freshly Baked Baguette",
+    image: "images/menu/product/bomb_kh.png",
+    name: "Bombay Khari",
     description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...",
-    price: "$13",
+      "Big and flaky, with thin delicate layers, our Bombay Khari is a favourite breakfast item.",
+    price: "₹140/-",
     category: "DESSERTS",
   },
   {
     id: 3,
-    image: "/images/menu/2000x2000.png",
-    name: "Chocolate Cherry Cheesecake",
+    image: "images/menu/product/at_kh.png",
+    name: "Atta Khari",
     description:
-      "Autem vel eum iriure dolor in hendrerit in vulputate molestie...",
-    price: "$9.10",
+      "Light and delectable, the goodness of whole wheat flour gives it a nourishing touch.",
+    price: "₹90/-",
     category: "DESSERTS",
   },
   {
     id: 4,
-    image: "/images/menu/2000x2000.png",
-    name: "French Breakfast",
+    image: "images/menu/product/maskaa_kharii.png",
+    name: "Maska Khari",
     description:
-      "Duis autem vel eum iriure dolor in hendrerit in vulputate molestie...",
-    price: "$15",
+      "Crunchy and super soft, our maska khari is most loved Khari Variety.",
+    price: "₹80/-",
     category: "DESSERTS",
   },
   {
     id: 5,
-    image: "/images/menu/2000x2000.png",
-    name: "Classic French Croissant",
+    image: "images/menu/product/shakkar_khari.png",
+    name: "Shakkar Khari",
     description:
-      "Duis autem vel eum iriure dolor in hendrerit in vulputate molestie...",
-    price: "$20",
+      "If you have a sweet cravings, our shakkar khari, with its crystal of sugar, make it yummier.",
+    price: "₹95/-",
     category: "DESSERTS",
   },
   {
     id: 6,
-    image: "/images/menu/2000x2000.png",
-    name: "New York Cheesecake",
+    image: "images/menu/product/but_baby_garlic.png",
+    name: "Butter Garlic Baby Rusk",
     description:
-      "UL autem vel eum iriure dolor in hendrerit in vulputate molestie...",
-    price: "$7.59",
+      "Each bite of this buttery treat gives you crunchy and spicy delight.",
+    price: "₹110/-",
+    category: "DESSERTS",
+  },
+  {
+    id: 7,
+    image: "images/menu/product/herb_butter_baby_rusk.png",
+    name: "Herb Butter Baby Rusk",
+    description:
+      "Embellished with select herbs, this yummy delight comes with a healthy twist.",
+    price: "₹110/-",
+    category: "DESSERTS",
+  },
+  {
+    id: 8,
+    image: "images/menu/product/rusk-Photoroom.png",
+    name: "Milk Baby Rusk",
+    description:
+      "Crispy and light, our bite-sized rusks make for superb tea time snacks.",
+    price: "₹110/-",
+    category: "DESSERTS",
+  },
+  {
+    id: 9,
+    image: "images/menu/product/gud_wheat.png",
+    name: "Gudwheat Cookies",
+    description:
+      "These sugar-free, preservative-less cookies with zero transfat (no maida) indeed make for healthy treat.",
+    price: "₹135/-",
+    category: "DESSERTS",
+  },
+  {
+    id: 10,
+    image: "images/menu/product/choco_wheat.png",
+    name: "Choco Wheat Cookies",
+    description:
+      "A pure chocolaty indulgence with no maida, these cookies are much loved by kids.",
+    price: "₹110/-",
+    category: "DESSERTS",
+  },
+  {
+    id: 11,
+    image: "images/menu/product/shahi_jeera.png",
+    name: "Shahi Jeera Cookies",
+    description:
+      "The titillating aroma of roasted jeera makes these cookies a hit with everyone in the family.",
+    price: "₹110/-",
+    category: "DESSERTS",
+  },
+  {
+    id: 12,
+    image: "images/menu/product/sticks-Photoroom.png",
+    name: "Ajwain Sticks",
+    description:
+      "A liberal sprinkling of ajwain gives this edible a splendid spicy twist.",
+    price: "₹110/-",
     category: "DESSERTS",
   },
 ];
@@ -72,118 +128,137 @@ function shuffleArray(array) {
   return shuffled;
 }
 
+const headingVariants = {
+  initial: { y: -20, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+  },
+};
+
+const categoryButtonVariants = {
+  initial: { opacity: 0, y: 10 },
+  animate: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut", delay: 0.1 * i },
+  }),
+};
+
+const itemVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut", delay: 0.15 * i },
+  }),
+};
+
 function MenuList() {
   const [items, setItems] = useState(menuItems);
   const [selectedCategory, setSelectedCategory] = useState("DESSERTS");
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddToCart = (itemId) => {
+    if (!cartItems.includes(itemId)) {
+      setCartItems([...cartItems, itemId]);
+    }
+  };
 
   const handleCategoryClick = (cat) => {
     setSelectedCategory(cat);
-    setItems(shuffleArray(menuItems)); // Just shuffle, no filtering for now
+    setItems(shuffleArray(menuItems));
+  };
+
+  const handleViewCart = () => {
+    // You can open a modal or navigate to /cart page instead
+    console.log("Cart Items:", cartItems);
   };
 
   return (
     <>
-      <section className="bg-white p-6 md:p-10 lg:p-20 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#311d09] tracking-widest mb-4">
-          BON APPETIT
-        </h1>
-
-        <p className="text-sm md:text-base text-[#a4907c] max-w-prose mx-auto">
-          Duis sit amet lacus maximus quam bibendum ultrices. Etiam fermentum id
-          turpis viverra gravida. Phasellus fringilla sapien eu maximus.
-          Pellentesque nibh risus, ultrices sit amet efficitur eu, ut tortor.
-        </p>
+      <section className="bg-white p-6 md:p-10 lg:p-20 text-center overflow-hidden">
+        <motion.h1
+          variants={headingVariants}
+          initial="initial"
+          animate="animate"
+          className="text-3xl md:text-5xl font-extrabold text-[#96712a] mt-10 uppercase tracking-wide flex justify-center"
+        >
+          OUR DELICACIES
+        </motion.h1>
       </section>
 
-      {/* Category Tabs */}
-      {/* <div className="flex justify-center space-x-8 mt-6 mb-8">
-        {categories.map((cat) => (
-          <button
+      <motion.div
+        className="flex flex-wrap justify-center gap-4 md:gap-8 mt-1/2 mb-8"
+        initial={{}}
+        animate={{}}
+      >
+        {categories.map((cat, index) => (
+          <motion.button
             key={cat}
             onClick={() => handleCategoryClick(cat)}
-            className={`text-lg font-semibold px-3 py-1 rounded transition 
-              ${
-                selectedCategory === cat
-                  ? "border-2 border-green-600 text-green-700"
-                  : "border-2 border-transparent text-[#422507] hover:border-green-600"
-              }`}
+            variants={categoryButtonVariants}
+            initial="initial"
+            animate="animate"
+            custom={index}
+            className={`text-base md:text-lg font-semibold px-4 py-1 rounded-full transition duration-300 ease-in-out ${
+              selectedCategory === cat
+                ? "border-2 border-green-600 text-green-700 bg-green-50"
+                : "border-2 border-transparent text-[#96712a] hover:border-green-600 hover:bg-green-50"
+            }`}
           >
             {cat}
-          </button>
+          </motion.button>
         ))}
-      </div> */}
+      </motion.div>
 
-      <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-6 mb-8">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => handleCategoryClick(cat)}
-            className={`text-base md:text-lg font-semibold px-4 py-1  transition
-        ${
-          selectedCategory === cat
-            ? "border-1 border-green-600 text-green-700"
-            : "border-1 border-transparent text-[#422507] hover:border-green-600"
-        }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Menu Items */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0 mb-20">
-        {items.map((item) => (
-          <div key={item.id} className="flex items-start gap-4 border-b pb-4">
+        {items.map((item, index) => (
+          <motion.div
+            key={item.id}
+            className="flex items-start gap-4 border-b pb-4 overflow-hidden"
+            variants={itemVariants}
+            initial="initial"
+            animate="animate"
+            custom={index}
+          >
             <img
               src={item.image}
               alt={item.name}
-              className="w-[90px] h-[90px] object-cover"
+              className="w-[90px] h-[90px] object-cover rounded-md shadow-sm"
             />
             <div className="flex-1 text-left">
               <div className="flex justify-between items-center">
-                <h3 className="text-green-600 font-semibold text-md hover:text-[#7B3F00] transition">
+                <h3 className="text-green-700 font-semibold text-md hover:text-[#7B3F00] transition duration-200 ">
                   {item.name}
                 </h3>
-                <span className="text-gray-900 font-bold">{item.price}</span>
+                <span className="text-green-600 font-bold">{item.price}</span>
               </div>
-              <p className="text-gray-500 text-sm">{item.description}</p>
+              <p className="text-[#96712a] text-sm">{item.description}</p>
+              <div className="mt-2 flex flex-col sm:flex-row gap-2">
+                <button
+                  onClick={() => handleAddToCart(item.id)}
+                  className={`px-4 py-1 rounded-full text-sm font-semibold transition duration-300 ${
+                    cartItems.includes(item.id)
+                      ? "bg-green-600 text-white cursor-default"
+                      : "bg-green-100 text-green-700 hover:bg-green-600 hover:text-white"
+                  }`}
+                  disabled={cartItems.includes(item.id)}
+                >
+                  {cartItems.includes(item.id) ? "Added" : "Add to Cart"}
+                </button>
+
+                <Link to="/cart"
+                  onClick={handleViewCart}
+                  className="px-4 py-1 rounded-full text-sm font-semibold bg-[#f5f5f5] text-[#96712a] border border-[#96712a] hover:bg-[#96712a] hover:text-white transition duration-300 text-center"
+                >
+                  View Cart
+                </Link>
+              </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-
-      <div className="py-10 px-6 md:px-20">
-        {/* Coffee Menu Section */}
-        <div className="text-center my-12">
-          {/* Heading */}
-          <h1 className="text-3xl md:text-4xl font-bold text-[#301a03ce] tracking-wider mb-6 mt-50">
-            COFFEE MENU
-          </h1>
-
-          {/* Quote */}
-          <div className="max-w-3xl mx-auto text-[#a4907c] text-base md:text-lg mb-10  leading-relaxed">
-            <p className="mb-4">
-              “I'm looking to nature for my inspiration. Letting the natural
-              produce speak. There's so much out there, so much elegance and
-              beauty.”
-            </p>
-            <p className="font-semibold">– PETER GILMORE</p>
-          </div>
-
-          {/* View Full Menu Button */}
-          <a
-            href="#"
-            className="relative inline-block px-6 py-4 border-2 border-green-500 text-green-500 text-sm md:text-base font-light tracking-wider transition-all duration-300 ease-in-out group hover:border-[#301a03ce]"
-          >
-            {/* Shadow border */}
-            <span className="absolute inset-0   border-2 border-[#311b0460] translate-x-[3px] translate-y-[4px] transition-colors duration-300 ease-in-out group-hover:border-[#301a03ce]"></span>
-
-            {/* Real border and text */}
-            <span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-[#301a03ce] tracking-tighter">
-              VIEW FULL MENU
-            </span>
-          </a>
-        </div>
       </div>
     </>
   );

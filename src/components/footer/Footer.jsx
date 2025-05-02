@@ -2,6 +2,7 @@ import React from "react";
 import { Twitter, Facebook, Linkedin } from "lucide-react";
 import { FaGooglePlusG, FaInstagram, FaSkype } from "react-icons/fa";
 import "./Footer.css"; // Import your fixed CSS
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,14 +12,7 @@ const Footer = () => {
         <div className="top-content">
           {/* Logo */}
           <div className="logo-and-description mb-6">
-            <div className="mb-4">
-              <img
-                src="/images/footer/logo_footer.png"
-                alt="Hot Coffee Logo"
-                className="mx-auto h-18 w-auto"
-              />
-            </div>
-            <p className="text-sm text-gray-400 max-w-md">
+            <p className="text-2 font-bold text-[#fff] max-w-md">
               Morbi sed justo felis. Phasellus condimentum ornare maximus. Nulla
               convallis tortor pellentesque tortor vulputate, eget bibendum nibh
               interdum.
@@ -26,7 +20,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="contact-info text-gray-300 mb-6 text-sm flex flex-wrap justify-center gap-8">
+          <div className="contact-info text-2 font-bold text-[#fff] mb-6 text-sm flex flex-wrap justify-center gap-8">
             <div className="address text-center">
               <p>Chicago, IL 60606</p>
               <p>123, New Lenox</p>
@@ -39,37 +33,32 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="social-icons flex justify-center gap-6 mb-6">
-            <a href="#" aria-label="Twitter" className="hover:text-blue-400">
+            <Link to="//" aria-label="Twitter" className="hover:text-blue-400">
               <Twitter className="h-6 w-6" />
-            </a>
-            <a href="#" aria-label="Facebook" className="hover:text-blue-600">
+            </Link>
+            <Link to="//" aria-label="Facebook" className="hover:text-blue-600">
               <Facebook className="h-6 w-6" />
-            </a>
-            <a href="#" aria-label="Google Plus" className="hover:text-red-500">
+            </Link>
+            <Link to="//" aria-label="Google Plus" className="hover:text-red-500">
               <FaGooglePlusG className="h-6 w-6" />
-            </a>
-            <a href="#" aria-label="Instagram" className="hover:text-pink-500">
+            </Link>
+            <Link to="/" aria-label="Instagram" className="hover:text-pink-500">
               <FaInstagram className="h-6 w-6" />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-blue-800">
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a href="#" aria-label="Skype" className="hover:text-blue-400">
-              <FaSkype className="h-6 w-6" />
-            </a>
+            </Link>
+            
           </div>
         </div>
 
         {/* Bottom Content */}
-        <div className="bottom-content text-xs text-gray-500">
-          ThemeRex © 2015 All Rights Reserved | Terms of Use | Privacy Policy
+        <div className="bottom-content text-3xl  text-[#fff]">
+          Sunkots © 2015 All Copyrights Reserved | Terms of Use | Privacy Policy
         </div>
       </div>
 
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white rounded-full p-3"
+        className="fixed bottom-4 right-4 bg-[#017043] hover:bg-[#294439] text-white rounded-full p-3"
         aria-label="Back to Top"
       >
         ↑
