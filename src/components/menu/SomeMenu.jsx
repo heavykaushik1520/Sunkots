@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./MenuList.css";
 
-const categories = ["BREAKFAST", "SPECIALS"];
+const categories = ["SAVOURIES", "SWEETS", "HEALTHY"];
 
 const menuItems = [
   {
@@ -13,7 +13,7 @@ const menuItems = [
     name: "Mini Khari",
     description:
       "Lovingly handcrafted, our artisanal and crispy Mini Khari makes for a good tea time snack.",
-    price: "₹110/-",
+    price: "110/-",
     category: "DESSERTS",
   },
   {
@@ -22,7 +22,7 @@ const menuItems = [
     name: "Bombay Khari",
     description:
       "Big and flaky, with thin delicate layers, our Bombay Khari is a favourite breakfast item.",
-    price: "₹140/-",
+    price: "140/-",
     category: "DESSERTS",
   },
   {
@@ -31,7 +31,7 @@ const menuItems = [
     name: "Atta Khari",
     description:
       "Light and delectable, the goodness of whole wheat flour gives it a nourishing touch.",
-    price: "₹90/-",
+    price: "90/-",
     category: "DESSERTS",
   },
   {
@@ -40,10 +40,10 @@ const menuItems = [
     name: "Maska Khari",
     description:
       "Crunchy and super soft, our maska khari is most loved Khari Variety.",
-    price: "₹80/-",
+    price: "80/-",
     category: "DESSERTS",
-  }
-]
+  },
+];
 
 // Shuffle helper
 function shuffleArray(array) {
@@ -68,6 +68,7 @@ function SomeMenu() {
   const [items, setItems] = useState(menuItems);
   const [selectedCategory, setSelectedCategory] = useState("DESSERTS");
   const [cart, setCart] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleCategoryClick = (cat) => {
     setSelectedCategory(cat);
@@ -109,7 +110,7 @@ function SomeMenu() {
       </motion.div>
 
       {/* Menu Items */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0 mb-16">
         {items.map((item, index) => (
           <motion.div
             key={item.id}
@@ -122,8 +123,10 @@ function SomeMenu() {
             <img
               src={item.image}
               alt={item.name}
-              className="w-[90px] h-[90px] object-cover rounded-md shadow-sm"
+              className="w-[90px] h-[90px] object-cover rounded-md shadow-sm cursor-pointer"
+              onClick={() => setSelectedImage(item.image)}
             />
+
             <div className="flex-1 text-left">
               <div className="flex justify-between items-center">
                 <h3 className="text-green-700 font-semibold text-md hover:text-[#7B3F00] transition duration-200">
@@ -143,15 +146,38 @@ function SomeMenu() {
         ))}
       </div>
 
+      {selectedImage && (
+        // <div
+        //   className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+        //   onClick={() => setSelectedImage(null)}
+        // >
+        <div className="fixed inset-0 bg-[#96712a]/90 flex items-center justify-center z-50" onClick={() => setSelectedImage(null)}>
+
+          <div className="relative">
+            <img
+              src={selectedImage}
+              alt="Enlarged"
+              className="max-w-full max-h-screen rounded-lg shadow-lg"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-2 right-2 bg-white text-black rounded-full p-1 hover:bg-gray-200"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* View Cart Button */}
-      <div className="text-center mt-10 mb-20">
+      {/* <div className="text-center mt-10 mb-20">
         <Link
           to="/cart"
           className="inline-block px-6 py-2 bg-[#96712a] text-white font-semibold rounded hover:bg-[#7b5a1c] transition"
         >
           View Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)})
         </Link>
-      </div>
+      </div> */}
     </>
   );
 }

@@ -12,22 +12,28 @@ const Footer = () => {
         <div className="top-content">
           {/* Logo */}
           <div className="logo-and-description mb-6">
-            <p className="text-2 font-bold text-[#fff] max-w-md">
-              Morbi sed justo felis. Phasellus condimentum ornare maximus. Nulla
-              convallis tortor pellentesque tortor vulputate, eget bibendum nibh
-              interdum.
-            </p>
+            <div className="flex flex-wrap items-center gap-6 mb-4">
+              <img
+                src="images/navbar/main_logo.png"
+                alt="Logo 1"
+                className="h-20 w-auto sm:h-24 object-contain"
+              />
+              <img
+                src="images/navbar/alt_logo.png"
+                alt="Logo 2"
+                className="h-20 w-auto sm:h-24 object-contain"
+              />
+            </div>
           </div>
 
           {/* Contact Info */}
           <div className="contact-info text-2 font-bold text-[#fff] mb-6 text-sm flex flex-wrap justify-center gap-8">
             <div className="address text-center">
-              <p>Chicago, IL 60606</p>
-              <p>123, New Lenox</p>
+              <p>Bhiwandi, Mumbai</p>
             </div>
             <div className="phone-fax text-center">
-              <p className="mt-4 sm:mt-0">Phone: 888-456-7890</p>
-              <p>Fax: 889-098-7654</p>
+              <p className="mt-4 sm:mt-0">Phone: 9819410099</p>
+              <p>Mail: support@sunkots.com</p>
             </div>
           </div>
 
@@ -39,13 +45,16 @@ const Footer = () => {
             <Link to="//" aria-label="Facebook" className="hover:text-blue-600">
               <Facebook className="h-6 w-6" />
             </Link>
-            <Link to="//" aria-label="Google Plus" className="hover:text-red-500">
+            <Link
+              to="//"
+              aria-label="Google Plus"
+              className="hover:text-red-500"
+            >
               <FaGooglePlusG className="h-6 w-6" />
             </Link>
             <Link to="/" aria-label="Instagram" className="hover:text-pink-500">
               <FaInstagram className="h-6 w-6" />
             </Link>
-            
           </div>
         </div>
 

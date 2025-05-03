@@ -122,10 +122,8 @@ const Banner = () => {
       </div>
       <Testimonial />
 
-      <div className="flex justify-center mt-10">
-        <div className="h-[2px] bg-[#017043] animate-expand-line"></div>
-      </div>
-      <section
+      
+      {/* <section
         ref={sectionRef}
         className="py-12 px-4 sm:px-8 bg-white text-center overflow-hidden"
       >
@@ -149,7 +147,7 @@ const Banner = () => {
             numbers.
           </p>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
