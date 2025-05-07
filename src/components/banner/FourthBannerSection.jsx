@@ -18,7 +18,7 @@ const FourthBannerSection = ({ parallax }) => {
         {/* Image Section */}
         <div className="relative mt-6 sm:mt-0">
           <img
-            src="images/main/bannera.png"
+            src="images/main/stack.png"
             alt="Cup"
             className="w-66 sm:w-56 md:w-72 lg:w-96 xl:w-[550px] transform translate-x-[-10px] sm:translate-x-[-20px]"
             style={{

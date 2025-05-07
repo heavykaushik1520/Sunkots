@@ -35,7 +35,7 @@ function CoffeeSection() {
         <div className="relative flex-shrink-0 lg:hidden">
           <img
             ref={cupRef}
-            src="images/main/ze.png"
+            src="images/main/stack.png"
             alt="Coffee Cup"
             className="w-[250px] md:w-[400px] lg:w-[500px] transition-transform duration-300 ease-out"
           />
@@ -45,7 +45,7 @@ function CoffeeSection() {
         <div className="relative flex-shrink-0 hidden lg:block">
           <img
             ref={cupRef}
-            src="images/main/ze.png"
+            src="images/main/stack.png"
             alt="Coffee Cup"
             className="w-[500px] transition-transform duration-300 ease-out mb-45"
           />

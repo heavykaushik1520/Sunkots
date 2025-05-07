@@ -21,7 +21,7 @@ const SecondBannerSection = ({ parallax }) => {
 
       <div className="relative mt-4 md:mt-6 flex justify-center lg:mb-40 lg:ml-40">
         <img
-          src="images/main/bannera.png"
+          src="images/main/stack.png"
           alt="Cup"
           className="w-70 sm:w-52 md:w-120"
           style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}

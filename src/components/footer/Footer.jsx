@@ -3,6 +3,7 @@ import { Twitter, Facebook, Linkedin } from "lucide-react";
 import { FaGooglePlusG, FaInstagram, FaSkype } from "react-icons/fa";
 import "./Footer.css"; // Import your fixed CSS
 import { Link } from "react-router-dom";
+import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -28,11 +29,16 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="contact-info text-2 font-bold text-[#fff] mb-6 text-sm flex flex-wrap justify-center gap-8">
-            <div className="address text-center">
-              <p>Bhiwandi, Mumbai</p>
+            <div className="address flex items-center space-x-2 text-center justify-center">
+              <FaLocationDot className="text-lg" />
+              <p>
+                Babosa Industrial Park Bldg No.A8 Unit No. 201-205 Sonale
+                Village Tal.Bhiwandi, Dist. Thane (M.H.)-421311
+              </p>
             </div>
+
             <div className="phone-fax text-center">
-              <p className="mt-4 sm:mt-0">Phone: 9819410099</p>
+              <p className="mt-4 sm:mt-0">Customer Care : +91 8928633289</p>
               <p>Mail: support@sunkots.com</p>
             </div>
           </div>

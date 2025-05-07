@@ -40,9 +40,9 @@ const FirstBannerSection = ({ parallax }) => {
         {/* Cup with Arrow2 overlayed */}
         <div className="relative mt-6 sm:mt-0">
           <img
-            src="images/main/bannera.png"
+            src="images/main/stack.png"
             alt="Cup"
-            className="w-66 sm:w-56 md:w-72 lg:w-96 xl:w-[1050px] transform translate-x-[-10px] sm:translate-x-[-20px]"
+            className="w-66 sm:w-56 md:w-72 lg:w-96 xl:w-[1500px] transform translate-x-[-10px] sm:translate-x-[-20px]"
             style={{
               transform: `translate(calc(${parallax.x}px - 10px), ${parallax.y}px)`,
             }}

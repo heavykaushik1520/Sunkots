@@ -123,31 +123,7 @@ const Banner = () => {
       <Testimonial />
 
       
-      {/* <section
-        ref={sectionRef}
-        className="py-12 px-4 sm:px-8 bg-white text-center overflow-hidden"
-      >
-        <div className="max-w-3xl mx-auto">
-          <h2
-            className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#96712a] mb-4 transition-transform duration-1000 ${
-              inView ? "slide-down" : "opacity-0 translate-y-[-50px]"
-            }`}
-          >
-            Baking Excellence, Since 2018
-          </h2>
-          <p
-            className={`text-[#96712a] text-base sm:text-lg  transition-transform duration-1000 delay-300 ${
-              inView ? "slide-up" : "opacity-0 translate-y-[50px]"
-            }`}
-          >
-            Standing on the strong pillars of Taste, Purity, and Customer
-            Delight, Sunkots has set new standards of excellence in the bakery
-            industry. Appreciated for their tempting flavours and crunchiness,
-            our baked delicacies have been tempting Mumbaikars in growing
-            numbers.
-          </p>
-        </div>
-      </section> */}
+      
     </>
   );
 };
