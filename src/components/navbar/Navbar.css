@@ -51,7 +51,7 @@
   position: relative;
 }
 
-.navbar-links ul li a:hover{
+.navbar-links ul li a:hover {
   color: #017043;
 }
 
@@ -92,6 +92,15 @@
 
 .navbar-cart a:hover {
   color: green; /* Changes to green on hover */
+}
+
+.logout-button {
+  text-decoration: none;
+  color: #d30606;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
 }
 
 .cart-icon {
@@ -150,10 +159,10 @@
   }
 
   .navbar-links ul li a {
-    color: #017043 !important;         /* White text only in mobile */
+    color: #017043 !important; /* White text only in mobile */
   }
 
   .navbar-links ul li a::after {
-    background-color: #017043;         /* White underline only in mobile */
+    background-color: #017043; /* White underline only in mobile */
   }
 }

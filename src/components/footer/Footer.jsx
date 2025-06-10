@@ -45,14 +45,14 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="social-icons flex justify-center gap-6 mb-6">
-            <Link to="//" aria-label="Twitter" className="hover:text-blue-400">
+            <Link to="/" aria-label="Twitter" className="hover:text-blue-400">
               <Twitter className="h-6 w-6" />
             </Link>
-            <Link to="//" aria-label="Facebook" className="hover:text-blue-600">
+            <Link to="/" aria-label="Facebook" className="hover:text-blue-600">
               <Facebook className="h-6 w-6" />
             </Link>
             <Link
-              to="//"
+              to="/"
               aria-label="Google Plus"
               className="hover:text-red-500"
             >
@@ -64,9 +64,45 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Policy Links */}
+        <div className="policy-links mt-6 mb-4 text-sm flex flex-col sm:flex-row justify-center gap-4 sm:gap-10 font-medium">
+          <Link
+            to="/privacy-policy"
+            className="hover:text-yellow-200 transition"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            to="/refund-return-policy"
+            className="hover:text-yellow-200 transition"
+          >
+            Refund & Return Policy
+          </Link>
+          <Link
+            to="/shipping-policy"
+            className="hover:text-yellow-200 transition"
+          >
+            Shipping Policy
+          </Link>
+          <Link
+            to="/terms-conditions"
+            className="hover:text-yellow-200 transition"
+          >
+            Terms & Conditions
+          </Link>
+        </div>
+
         {/* Bottom Content */}
         <div className="bottom-content text-3xl  text-[#fff]">
-          Sunkots © 2015 All Copyrights Reserved | Terms of Use | Privacy Policy
+          Sunkots © 2015 All Copyrights Reserved | Developed by{" "}
+          <a
+            href="https://ideatore.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-yellow-200 hover:text-yellow-400 transition"
+          >
+            Ideatore Interactive Solutions Pvt. Ltd.
+          </a>
         </div>
       </div>
 

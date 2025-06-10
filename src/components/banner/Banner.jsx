@@ -103,7 +103,7 @@ const Banner = () => {
             Check out our wide selection of bakery delights.
           </p>
           <SomeMenu />
-          <Link to="/menu">
+          <Link to="/products">
             {" "}
             {/* Replace "/menu" with the actual path to your MenuList */}
             <button className="bg-[#96712a] hover:bg-[#017043] text-white px-6 py-2 rounded-full transition duration-300 font-semibold">

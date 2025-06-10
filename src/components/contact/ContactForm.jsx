@@ -1,6 +1,9 @@
+
+
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { toast } from "react-hot-toast";
 
 const containerVariants = {
   initial: { opacity: 0, y: 50 },
@@ -33,6 +36,43 @@ const buttonVariants = {
 };
 
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("https://artiststation.co.in/sunkots-backend/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast.success("Form submitted successfully!");
+        setFormData({ firstname: "", lastname: "", phone: "", message: "" });
+      } else {
+        toast.error("Failed to submit form.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong.");
+    }
+  };
+
   return (
     <motion.div
       className="min-h-screen bg-[#f8f8f8] flex items-center justify-center px-4 py-10"
@@ -58,26 +98,32 @@ const ContactForm = () => {
           CONTACT US
         </motion.h2>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <motion.div variants={inputVariants} custom={0}>
               <label className="block text-[#96712a] font-semibold mb-1">
-                Name
+                First Name
               </label>
               <input
                 type="text"
-                placeholder="Your name"
+                name="firstname"
+                value={formData.firstname}
+                onChange={handleChange}
+                placeholder="first name"
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#017043]"
               />
             </motion.div>
 
             <motion.div variants={inputVariants} custom={1}>
               <label className="block text-[#96712a] font-semibold mb-1">
-                Phone
+                Last Name
               </label>
               <input
-                type="tel"
-                placeholder="Your phone number"
+                type="text"
+                name="lastname"
+                value={formData.lastname}
+                onChange={handleChange}
+                placeholder="last name"
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#017043]"
               />
             </motion.div>
@@ -85,16 +131,19 @@ const ContactForm = () => {
 
           <motion.div variants={inputVariants} custom={2}>
             <label className="block text-[#96712a] font-semibold mb-1">
-              Email
+              Phone No.
             </label>
             <input
-              type="email"
-              placeholder="Your email"
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="phone no."
               className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#017043]"
             />
           </motion.div>
 
-          <motion.div variants={inputVariants} custom={3}>
+          {/* <motion.div variants={inputVariants} custom={3}>
             <label className="block text-[#96712a] font-semibold mb-1">
               Attach File
             </label>
@@ -102,7 +151,7 @@ const ContactForm = () => {
               type="file"
               className="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-700"
             />
-          </motion.div>
+          </motion.div> */}
 
           <motion.div variants={inputVariants} custom={4}>
             <label className="block text-[#96712a] font-semibold mb-1">
@@ -110,6 +159,9 @@ const ContactForm = () => {
             </label>
             <textarea
               rows="4"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Write your message..."
               className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#017043]"
             ></textarea>
