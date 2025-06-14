@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // src/pages/SignupPage.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -29,12 +30,11 @@ const SignupPage = () => {
 
     try {
       const response = await api('/auth/user/signup', 'POST', formData);
-      console.log('Signup successful:', response);
+      // console.log('Signup successful:', response);
       setSuccess('Signup successful! You can now log in.');
-      setFormData({ // Clear form after successful signup
+      setFormData({ 
         firstname: '', lastname: '', phone: '', email: '', password: '', address: '',
       });
-      // Optionally, redirect to login page after a short delay
       setTimeout(() => {
         navigate('/login');
       }, 2000);

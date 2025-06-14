@@ -27,6 +27,8 @@ import ShippingPolicy from "./pages/ShippingPolicy";
 import TermsAndConditions from "./pages/TermsConditions";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import Checkout from "./components/checkout/Checkout";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -38,6 +40,9 @@ function AppContent() {
     <>
       <Toaster position="top-right" reverseOrder={false} />
       <Navbar />
+
+      <ScrollToTop />
+
 
       <Routes>
         <Route path="/" element={<Banner />} />
@@ -78,6 +83,15 @@ function AppContent() {
           element={
             <PrivateRoute>
               <MyOrders />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <Checkout />
             </PrivateRoute>
           }
         />

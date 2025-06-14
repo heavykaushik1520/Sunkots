@@ -1,79 +1,5 @@
 /* eslint-disable no-unused-vars */
 // src/context/AuthContext.js
-// import React, { createContext, useState, useEffect, useContext } from "react";
-// import * as jwt from "jwt-decode";
-// import { refreshToken } from "../services/api";
-
-// const AuthContext = createContext(null);
-
-// export const AuthProvider = ({ children }) => {
-//   const [authToken, setAuthToken] = useState(localStorage.getItem("jwtToken"));
-//   const [isAuthenticated, setIsAuthenticated] = useState(
-//     !!localStorage.getItem("jwtToken")
-//   );
-//   const [user, setUser] = useState(null);
-
-//   // useEffect(() => {
-//   //   setIsAuthenticated(!!authToken);
-
-//   // }, [authToken]);
-  
-
-//   useEffect(() => {
-//     if (!authToken) return;
-
-//     const decoded = jwt_decode(authToken);
-//     const exp = decoded.exp * 1000;
-//     const now = Date.now();
-//     const timeout = exp - now - 60 * 1000;
-
-//     if (timeout > 0) {
-//       const timer = setTimeout(async () => {
-//         try {
-//           const newToken = await refreshToken();
-//           setAuthToken(newToken);
-//           localStorage.setItem("jwtToken", newToken);
-//           setUser(jwt_decode(newToken)); // optional
-//         } catch (err) {
-//           logout();
-//         }
-//       }, timeout);
-
-//       return () => clearTimeout(timer);
-//     } else {
-//       logout();
-//     }
-//   }, [authToken]);
-//   const login = (token) => {
-//     localStorage.setItem("jwtToken", token);
-//     setAuthToken(token);
-//   };
-
-//   const logout = () => {
-//     localStorage.removeItem("jwtToken");
-//     setAuthToken(null);
-//     setIsAuthenticated(false);
-//     setUser(null);
-//   };
-
-//   return (
-//     <AuthContext.Provider
-//       value={{ authToken, isAuthenticated, user, setUser, login, logout }}
-//     >
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
-
-// // Custom hook to easily use the AuthContext
-// export const useAuth = () => {
-//   return useContext(AuthContext);
-// };
-
-
-
-/* eslint-disable no-unused-vars */
-// src/context/AuthContext.js
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { jwtDecode } from "jwt-decode"; // Corrected import
 import { refreshToken } from "../services/api"; // Assuming this is where refreshToken is defined
@@ -86,12 +12,6 @@ export const AuthProvider = ({ children }) => {
     !!localStorage.getItem("jwtToken")
   );
   const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   setIsAuthenticated(!!authToken);
-
-  // }, [authToken]);
-
 
   useEffect(() => {
     if (!authToken) return;
@@ -165,5 +85,4 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-// --- Your existing api.js content, assuming it's in a separate file like services/api.js ---
 

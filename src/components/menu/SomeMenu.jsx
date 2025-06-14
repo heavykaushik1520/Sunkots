@@ -130,22 +130,34 @@ function ShowMenu() {
                 </p>
 
                 <div className="flex items-center mt-2 gap-2">
-                  <label
-                    htmlFor={`quantity-${item.id}`}
-                    className="text-sm font-semibold"
-                  >
-                    Qty:
-                  </label>
-                  <input
-                    type="number"
-                    id={`quantity-${item.id}`}
-                    min="1"
-                    value={quantities[item.id] || 1}
-                    onChange={(e) =>
-                      handleQuantityChange(item.id, parseInt(e.target.value))
-                    }
-                    className="w-16 border rounded px-2 py-1 text-center"
-                  />
+                  <label className="text-sm font-semibold">Qty:</label>
+                  <div className="flex items-center border rounded overflow-hidden">
+                    <button
+                      onClick={() =>
+                        handleQuantityChange(
+                          item.id,
+                          Math.max(1, (quantities[item.id] || 1) - 1)
+                        )
+                      }
+                      className="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white px-2"
+                    >
+                      -
+                    </button>
+                    <span className="px-3 w-8 text-center">
+                      {quantities[item.id] || 1}
+                    </span>
+                    <button
+                      onClick={() =>
+                        handleQuantityChange(
+                          item.id,
+                          (quantities[item.id] || 1) + 1
+                        )
+                      }
+                      className="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white px-2"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
 
                 <div className="mt-3 flex flex-col sm:flex-row gap-2">

@@ -181,7 +181,7 @@ const TermsAndConditions = () => {
               Email: <a href="mailto:support@sunkots.in" className="text-blue-600 hover:underline">support@sunkots.in</a>
             </li>
             <li>
-              Registered Office: [Insert Office Address Here]
+              Registered Office: Babosa Industrial Park Bldg No.A8 Unit No. 201-205 Sonale Village Tal.Bhiwandi, Dist. Thane (M.H.)-421311
             </li>
           </ul>
         </section>

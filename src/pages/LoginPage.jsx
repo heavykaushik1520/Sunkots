@@ -4,12 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // <-- At the top
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ const LoginPage = () => {
         email,
         password,
       });
-      console.log("Login successful:", response);
+      // console.log("Login successful:", response);
       if (response.token) {
         login(response.token); // Store token in AuthContext and localStorage
 
@@ -90,24 +92,32 @@ const LoginPage = () => {
             >
               Password
             </label>
-            <input
-              type="password"
-              id="password"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-brand focus:border-primary-brand sm:text-sm"
-              placeholder="********"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-brand focus:border-primary-brand sm:text-sm pr-10"
+                placeholder="********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <span
+                className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
             <p className="text-sm text-gray-900 mt-2">
-            If You Forgot your password?{" "}
-            <Link
-              to="/forgot-password"
-              className="text-[#d82323] underline hover:opacity-80"
-            >
-              Reset here
-            </Link>
-          </p>
+              If You Forgot your password?{" "}
+              <Link
+                to="/forgot-password"
+                className="text-[#d82323] underline hover:opacity-80"
+              >
+                Reset here
+              </Link>
+            </p>
           </div>
           <div>
             <button
@@ -118,7 +128,6 @@ const LoginPage = () => {
               {loading ? "Logging in..." : "Sign In"}
             </button>
           </div>
-          
         </form>
         <div className="mt-6 text-center">
           <p className="text-gray-600">

@@ -90,6 +90,12 @@ const Footer = () => {
           >
             Terms & Conditions
           </Link>
+           <Link
+            to="/contact"
+            className="hover:text-yellow-200 transition"
+          >
+            Contact Us
+          </Link>
         </div>
 
         {/* Bottom Content */}
